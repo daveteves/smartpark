@@ -28,3 +28,18 @@ CREATE TABLE Vehicles (
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
+-- Seed
+INSERT INTO Tariff_Rules (vehicle_type, base_rate, hourly_rate, daily_max, grace_period) VALUES
+('Car', 50.00, 20.00, 300.00, 15),
+('Motorcycle', 30.00, 10.00, 150.00, 15),
+('EV', 40.00, 15.00, 250.00, 20);
+
+INSERT INTO Promo_Codes (code, discount_percentage, discount_amount, valid_from, valid_until, usage_limit) VALUES
+('WELCOME20', 20.00, NULL, '2026-11-01', '2026-12-31', 100),
+('MINUS50', NULL, 50.00, '2026-11-01', '2026-11-30', 50);
+
+INSERT INTO Vehicles (user_id, license_plate, vehicle_type, color) VALUES
+(2, 'ABC-1234', 'Car', 'Black'),
+(3, 'XYZ-9876', 'EV', 'White'),
+(2, 'MOT-555', 'Motorcycle', 'Red');
+
